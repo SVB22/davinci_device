@@ -1,6 +1,10 @@
 import /system/etc/init/init.power.rc
 import /system/etc/init/init.safailnet.rc
 
+on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+
 on init
     chown system system /dev/input/event2
     chmod 0666 /dev/input/event2
