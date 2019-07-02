@@ -1,15 +1,14 @@
-# Allow init to mount wlan kernel module
+# Allow init to bind mount over vendor file
 allow init { system_file vendor_file }:file mounton;
 
 # Allow init to mount vendor configs
 allow init vendor_configs_file:dir mounton;
 
-# Allow init to mount offmode charging daemon
+# Allow init to mount overlay files
 allow init rootfs:file mounton;
+allow init vendor_overlay_file:file mounton;
 
-# Allow init to chown/chmod on pseudo files in /sys
-allow init {
-    sysfs_graphics
-    sysfs_tp_fodstatus
-    sysfs_tp_fodhbm
-}:file { open read setattr };
+permissive init;
+
+# Allow init to set sysfs attributes for FOD
+allow init { sysfs_tp_fodhbm sysfs_tp_fodstatus sysfs_graphics }:file setattr;
