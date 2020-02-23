@@ -1,3 +1,9 @@
+# Binaries
+/(vendor|system/vendor)/bin/gfscreenoffd           u:object_r:gfscreenoffd_exec:s0
+
+# Data files
+/data/display(/.*)?           u:object_r:display_data_file:s0
+
 # Files in rootfs
 /bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
 /dsp(/.*)?               u:object_r:adsprpcd_file:s0

@@ -92,6 +92,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    gfscreenoffd \
     lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci
 
 PRODUCT_COPY_FILES += \

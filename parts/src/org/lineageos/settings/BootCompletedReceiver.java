@@ -33,6 +33,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     private static final boolean DEBUG = false;
     private static final String TAG = "XiaomiParts";
+    private static final String FOD_SCREENOFF_ENABLE_KEY = "fod_screenoff_enable";
+    private static final String FOD_SCRNOFFD_PROP = "persist.sys.gfscreenoffd.run";
     private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
     private static final String FILE_EA = "/sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable";
 
@@ -43,6 +45,10 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DiracUtils.initialize(context);
         DozeUtils.checkDozeService(context);
         PopupCameraUtils.startService(context);
+
+        boolean fodScreenOffState = sharedPrefs.getBoolean(FOD_SCREENOFF_ENABLE_KEY, false);
+        SystemProperties.set(FOD_SCRNOFFD_PROP, fodScreenOffState ? "1" : "0");
+
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
         FileUtils.writeLine(FILE_EA, dcDimmingEnabled ? "1" : "0");
     }
