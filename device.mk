@@ -74,6 +74,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc \
     init.safailnet.rc \
+	sqlite3 \
     init.power.rc
 
 PRODUCT_COPY_FILES += \
@@ -85,7 +86,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system \
     libvulkan \
-vendor.display.config@1.7
+    vendor.display.config@1.7
 
 # Fingerprint
 PRODUCT_PACKAGES += \

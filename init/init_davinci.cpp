@@ -15,100 +15,59 @@
  */
 
  #include <android-base/logging.h>
- #include <android-base/properties.h>
- #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
- #include <sys/_system_properties.h>
- #include <sys/sysinfo.h>
+#include <android-base/properties.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
- #include "property_service.h"
- #include "vendor_init.h"
+#include "property_service.h"
+#include "vendor_init.h"
 
- using android::init::property_set;
+using android::init::property_set;
 
- void property_override(char const prop[], char const value[])
- {
-     prop_info *pi;
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
 
-     pi = (prop_info*) __system_property_find(prop);
-     if (pi)
-         __system_property_update(pi, value, strlen(value));
-     else
-         __system_property_add(prop, strlen(prop), value, strlen(value));
- }
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+void load_davinciglobal() {
+    property_override("ro.product.model", "Mi 9T");
+    property_override("ro.build.product", "davinci");
+    property_override("ro.product.device", "davinci");
+    property_override("ro.build.fingerprint", "google/coral/coral:10/QQ2A.200305.003/6156912:user/release-keys");
+}
 
- void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
- {
-     property_override(product_prop, value);
-     property_override(system_prop, value);
-     property_override(vendor_prop, value);
- }
+void load_davinciin() {
+    property_override("ro.product.model", "Redmi K20");
+    property_override("ro.build.product", "davinciin");
+    property_override("ro.product.device", "davinciin");
+    property_override("ro.build.fingerprint", "google/coral/coral:10/QQ2A.200305.003/6156912:user/release-keys");
+}
 
- void load_davinciglobaleu() {
-     property_override("ro.product.model", "Mi 9T");
-     property_override("ro.build.product", "davinci");
-     property_override("ro.product.device", "davinci");
-     property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.4.0.QFJEUXM release-keys");
- }
+void load_davinci() {
+    property_override("ro.product.model", "Redmi K20");
+    property_override("ro.build.product", "davinci");
+    property_override("ro.product.device", "davinci");
+    property_override("ro.build.fingerprint", "google/coral/coral:10/QQ2A.200305.003/6156912:user/release-keys");
+}
 
- void load_davinciglobal() {
-     property_override("ro.product.model", "Mi 9T");
-     property_override("ro.build.product", "davinci");
-     property_override("ro.product.device", "davinci");
-     property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.4.0.QFJMIXM release-keys");
- }
 
- void load_davinciin() {
-     property_override("ro.product.model", "Redmi K20");
-     property_override("ro.build.product", "davinciin");
-     property_override("ro.product.device", "davinciin");
-     property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.2.0.QFJINXM release-keys");
- }
+void vendor_load_properties() {
+    std::string region = android::base::GetProperty("ro.boot.hwc", "");
 
- void load_davinci() {
-     property_override("ro.product.model", "Redmi K20");
-     property_override("ro.build.product", "davinci");
-     property_override("ro.product.device", "davinci");
-     property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.4.0.QFJCNXM release-keys");
- }
-
- void load_dalvikvm_properties()
- {
-     struct sysinfo sys;
-
-     sysinfo(&sys);
-     if (sys.totalram < 7000ull * 1024 * 1024) {
-         // 4/6GB RAM
-         property_override("dalvik.vm.heapstartsize", "16m");
-         property_override("dalvik.vm.heaptargetutilization", "0.5");
-         property_override("dalvik.vm.heapmaxfree", "32m");
-     } else {
-         // 8/12/16GB RAM
-         property_override("dalvik.vm.heapstartsize", "24m");
-         property_override("dalvik.vm.heaptargetutilization", "0.46");
-         property_override("dalvik.vm.heapmaxfree", "48m");
-     }
-
-     property_override("dalvik.vm.heapgrowthlimit", "256m");
-     property_override("dalvik.vm.heapsize", "512m");
-     property_override("dalvik.vm.heapminfree", "8m");
- }
-
- void vendor_load_properties() {
-     std::string region = android::base::GetProperty("ro.boot.hwc", "");
-
-     if (region.find("CN") != std::string::npos) {
-         load_davinci();
-     } else if (region.find("INDIA") != std::string::npos) {
-         load_davinciin();
-     } else if (region.find("GLOBAL") != std::string::npos) {
-         load_davinciglobal();
-     } else {
-         load_davinciglobaleu();
-     }
-
-     property_override("ro.oem_unlock_supported", "0");
-     property_override("ro.control_privapp_permissions", "log");
-     property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ1D.200205.002/6084393:user/release-keys");
-
-     load_dalvikvm_properties();
- }
+    if (region.find("CN") != std::string::npos) {
+        load_davinci();
+    } else if (region.find("INDIA") != std::string::npos) {
+        load_davinciin();
+    } else {
+        load_davinciglobal();
+    }
+    property_override("ro.oem_unlock_supported", "0");
+    property_override("ro.apex.updatable", "true");
+    property_override("ro.control_privapp_permissions", "log");
+    property_override("vendor.display.disable_hw_recovery_dump", "0");
+}
