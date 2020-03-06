@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 Nitrogen Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lockscreen_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="hide_lock_shortcuts"
+        android:title="@string/lockscreen_hide_shortcuts_title"
+        android:summary="@string/lockscreen_hide_shortcuts_summary"
+        android:defaultValue="false" />
+
+    <Preference
+            android:title="@string/lockscreen_tuner_title" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
+    </Preference>
+
+    <com.msm.xtended.preferences.SecureSettingSwitchPreference
+        android:key="hide_lockicon"
+        android:title="@string/hide_lockicon_title"
+        android:summary="@string/hide_lockicon_summary"
+        android:defaultValue="true" />
+
+    <PreferenceScreen
+        android:key="lockscreen_ui"
+        android:title="@string/lockscreen_ui_title"
+        android:summary="@string/lockscreen_ui_summary"
+        android:fragment="com.msm.xtended.fragments.LockscreenUi" />
+
+    <Preference
+        android:key="omnijaws_settings"
+        android:title="@string/weather_title"
+        android:summary="@string/weather_summary"
+        android:fragment="com.msm.xtended.fragments.OmniJawsSettings" />
+
+    <!-- FOD customization options -->
+    <PreferenceCategory
+        android:key="fod_icon_picker"
+        android:title="@string/fod_icon_picker_category_title">
+
+        <Preference
+            android:key="fod_icon_picker_category"
+            android:title="@string/fod_icon_picker_title"
+            android:summary="@string/fod_icon_picker_summary"
+            android:fragment="com.msm.xtended.fragments.FODIconPickerFragment" />
+
+        <!-- FOD recognizing animation -->
+        <com.msm.xtended.preferences.SystemSettingSwitchPreference
+            android:key="fod_recognizing_animation"
+            android:title="@string/fod_recog_animation"
+            android:summary="@string/fod_recog_animation_summary"
+            android:defaultValue="false" />
+
+        <com.msm.xtended.preferences.SystemSettingListPreference
+            android:key="fod_anim"
+            android:title="@string/fod_recog_animation_effect_title"
+            android:summary="%s"
+            android:entries="@array/fod_recog_animation_entries"
+            android:entryValues="@array/fod_recog_animation_values"
+            android:defaultValue="0"
+            android:dependency="fod_recognizing_animation" />
+
+        <com.msm.xtended.preferences.SystemSettingListPreference
+            android:key="fod_pressed_state"
+            android:dialogTitle="@string/fod_pressed_state_title"
+            android:title="@string/fod_pressed_state_title"
+            android:summary="%s"
+            android:entries="@array/fod_pressed_state_entries"
+            android:entryValues="@array/fod_pressed_state_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:summary="@string/fod_pressed_state_footer" />
+
+    </PreferenceCategory>
+    <Preference
+        android:key="lockscreen_visualizer_ui"
+        android:title="@string/visualizer_ui_title"
+        android:summary="@string/visualizer_ui_summary"
+        android:fragment="com.msm.xtended.fragments.VisualizerUI" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+         android:key="lock_screen_custom_notif"
+         android:title="@string/lockscreen_maxnotif_title"
+         android:summary="@string/lockscreen_maxnotif_sumary"
+         android:defaultValue="false" />
+
+    <com.msm.xtended.preferences.CustomSeekBarPreference
+         android:key="lockscreen_max_notif_cofig"
+         android:title="@string/lockscreen_maxnotif_config"
+         android:max="6"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight=""
+         android:persistent="false"
+         android:dependency="lock_screen_custom_notif" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_battery_info"
+        android:title="@string/lockscreen_battery_info_title"
+        android:summary="@string/lockscreen_battery_info_summary"
+        android:defaultValue="true" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_charging_animation"
+        android:title="@string/lockscreen_charging_animation_title"
+        android:summary="@string/lockscreen_charging_animation_summary"
+        android:defaultValue="true" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_status_bar"
+        android:title="@string/hide_lockscreen_status_bar_title"
+        android:summary="@string/hide_lockscreen_status_bar_summary"
+        android:defaultValue="false" />
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference
+        android:key="fp_unlock_keystore"
+        android:title="@string/fp_unlock_keystore_title"
+        android:summary="@string/fp_unlock_keystore_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="fingerprint_success_vib"
+        android:title="@string/fprint_sucess_vib_title"
+        android:summary="@string/fprint_sucess_vib_summary"
+        android:persistent="false" />
+
+</PreferenceScreen>
+

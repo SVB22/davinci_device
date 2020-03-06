@@ -139,7 +139,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.wlan.vendor=qcom \
     ro.hardware.wlan.chip=39xx \
     ro.hardware.wlan.mimo=1
-
-# Device Maintainer
-PRODUCT_PROPERTY_OVERRIDES += \
-      ro.xtended.maintainer=SVB

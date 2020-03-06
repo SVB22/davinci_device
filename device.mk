@@ -173,3 +173,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# Device Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+      ro.xtended.maintainer=SVB
