@@ -493,7 +493,7 @@
     <string name="custom_carrier_label_explain">Пожалуйста, введите новый логотип. Leave blank to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Пользовательский логотип не установлен</string>
     <string name="show_carrier_title">Логотип оператора</string>
-    <string name="show_carrier_disabled">Отелючен</string>
+    <string name="show_carrier_disabled">Отключен</string>
     <string name="show_carrier_keyguard">Только на экране блокировки</string>
     <string name="show_carrier_statusbar">Только в строке состояния</string>
     <string name="show_carrier_enabled">На экране блокировки и в строке состояния</string>
