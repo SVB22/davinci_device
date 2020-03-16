@@ -175,6 +175,10 @@ service vendor.power-hal-1-2 /system/bin/true
 on boot
     write /sys/class/thermal/thermal_message/sconfig 10
 
+    # Graphics
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/modes
+    chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/modes
+
 service citsensor-hal-1-1  /vendor/bin/hw/vendor.xiaomi.hardware.citsensorservice@1.1-service
     override
     class late_start
