@@ -331,9 +331,9 @@
     <string name="dashboard_conditions_title">Панель состояния</string>
     <string name="summary_dashboard_conditions_enabled">Панель состояния включена</string>
     <string name="summary_dashboard_conditions_disabled">Панель состояния отключена</string>
-    <string name="dashboard_suggestions_title">Панель преложений</string>
-    <string name="summary_dashboard_suggestions_enabled">Панель преложений включена</string>
-    <string name="summary_dashboard_suggestions_disabled">Панель преложений отключена</string>
+    <string name="dashboard_suggestions_title">Панель приложений</string>
+    <string name="summary_dashboard_suggestions_enabled">Панель приложений включена</string>
+    <string name="summary_dashboard_suggestions_disabled">Панель приложений отключена</string>
 
     <!-- Statusbar Clock Font Style, Size & Color -->
     <string name="status_bar_clock_font_style_title">Стиль шрифта часов</string>
