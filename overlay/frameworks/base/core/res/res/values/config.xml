@@ -613,4 +613,17 @@
 
     <!-- Whether device supports an alt. ambient display -->
     <bool name="config_alt_ambient_display">true</bool>
-    </resources>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_enableSmartPixels">true</bool>
+
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+     in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    If you run qcacld-3.0 wifi driver, you might as well use this for wifi random mac generation, useful when logging in public networks:
+    <bool name="config_wifi_support_connected_mac_randomization_supported">true</bool>
+
+    <!-- Boolean indicating whether 802.11r Fast BSS Transition is enabled on this platform -->
+    <bool translatable="false" name="config_wifi_fast_bss_transition_enabled">true</bool>
+</resources>
