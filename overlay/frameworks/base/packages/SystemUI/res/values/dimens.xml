@@ -16,6 +16,7 @@
 */
 -->
 <resources>
-    <dimen name="rounded_corner_content_padding">12dp</dimen>
-    <dimen name="system_icons_keyguard_padding_end">4dp</dimen>
+    <dimen name="status_bar_battery_icon_width">13dp</dimen>
+    <dimen name="rounded_corner_content_padding">14dp</dimen>
+    <dimen name="system_icons_keyguard_padding_end">7dp</dimen>
 </resources>
