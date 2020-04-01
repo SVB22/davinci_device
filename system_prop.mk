@@ -54,6 +54,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=0 \
     debug.enable.sglscale=1 \
     debug.gralloc.enable_fb_ubwc=1 \
+	debug.gralloc.gfx_ubwc_disable=0 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.recomputecrop=0 \
     dev.pm.dyn_samplingrate=1
@@ -146,7 +147,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ssr.enable_ramdumps=0
+    persist.vendor.ssr.enable_ramdumps=0 \
     persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # WLAN
