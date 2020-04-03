@@ -23,55 +23,54 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
-
+import org.lineageos.settings.utils.FileUtils;
 import org.lineageos.settings.R;
-
-import vendor.xiaomi.hardware.displayfeature.V1_0.IDisplayFeature;
 
 public class DcDimmingSettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
     private SwitchPreference mDcDimmingPreference;
-    private IDisplayFeature mDisplayFeature;
+    private static final String FILE_EA = "/sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable";
 
-    @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.dcdimming_settings);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-        try {
-            mDisplayFeature = IDisplayFeature.getService();
-        } catch (Exception e) {
-            // Do nothing
-        }
-        mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
-        mDcDimmingPreference.setEnabled(true);
-        mDcDimmingPreference.setOnPreferenceChangeListener(this);
-    }
+     @Override
+     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+         addPreferencesFromResource(R.xml.dcdimming_settings);
+         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+         mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
+         if (!isSupported()) {
+             return;
+         }
+         mDcDimmingPreference.setEnabled(true);
+         mDcDimmingPreference.setOnPreferenceChangeListener(this);
+     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (DC_DIMMING_ENABLE_KEY.equals(preference.getKey())) {
-            enableDcDimming((Boolean) newValue ? 1 : 0);
-        }
-        return true;
-    }
+     public static boolean isSupported() {
+         return FileUtils.fileExists(FILE_EA);
+     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
-            return true;
-        }
-        return false;
-    }
+     @Override
+     public boolean onPreferenceChange(Preference preference, Object newValue) {
+         if (DC_DIMMING_ENABLE_KEY.equals(preference.getKey())) {
+             enableDcDimming();
+         }
+         return true;
+     }
 
-    private void enableDcDimming(int enable) {
-        if (mDisplayFeature == null) return;
-        try {
-            mDisplayFeature.setFeature(0, 20, enable, 255);
-        } catch (Exception e) {
-            // Do nothing
-        }
-    }
-}
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         if (item.getItemId() == android.R.id.home) {
+             getActivity().onBackPressed();
+             return true;
+         }
+         return false;
+     }
+
+     public void enableDcDimming() {
+         if (!isSupported()) {
+             return;
+         }
+         if (mDcDimmingPreference.isChecked()) FileUtils.writeLine(FILE_EA, "0");
+         else FileUtils.writeLine(FILE_EA, "1");
+     }
+ }
