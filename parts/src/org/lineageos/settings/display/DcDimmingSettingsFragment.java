@@ -39,6 +39,7 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
          getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
          mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
          if (!isSupported()) {
+             mDcDimmingPreference.setEnabled(false);
              return;
          }
          mDcDimmingPreference.setEnabled(true);
