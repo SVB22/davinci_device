@@ -1284,6 +1284,7 @@
     <string name="volume_panel_on_left_summary">Переместить панель громкости с левой стороны на правую</string>
 
     <!-- FOD icon picker -->
+    <string name="fod_icon_picker_category_title">Параметры FOD</string>
     <string name="fod_icon_picker_title">Выбор иконки отпечатка</string>
     <string name="fod_icon_picker_summary">Выберите ваш любимый значок отпечатка пальца</string>
     <string name="fod_icon_picker_footer">Чтобы добавить свой значок, выберите значок в верхнем левом углу и с помощью приложения выберите нужный значок.</string>
