@@ -266,4 +266,9 @@
     <string name="stabilization_velocity_amplitude">Амлитуда скорости</string>
     <string name="stabilization_position_friction">Трение положения</string>
 
+    <string name="tuner_keyguard_show_battery_bar_title">Показывать панель батареи</string>
+    <string name="tuner_keyguard_show_battery_bar_summary">Показывать панель батареи при зарядке если включено всегда на дисплее</string>
+    <string name="tuner_keyguard_show_battery_bar_always_title">Всегда показывать панель батареи</string>
+    <string name="tuner_keyguard_show_battery_bar_always_summary">Всегда показывать панель батареи при зарядке</string>
+
 </resources>

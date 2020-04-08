@@ -182,7 +182,6 @@
     <string name="powermenu_soundpanel">Звуковая панель</string>
     <string name="powermenu_users">Пользователи</string>
     <string name="powermenu_logout">Выход</string>
-    <string name="global_actions_onthego">OnTheGo</string>
     <string name="powermenu_torch">Фонарик</string>
     <string name="powermenu_emergency">Экстренные вызовы</string>
 
@@ -1302,4 +1301,9 @@
     <string name="fod_recog_animation_summary">Показывать анимацию при распознавании отпечатка</string>
     <string name="fod_recog_animation_effect_title">Эффекты анимации распознавания</string>
 
+    <!-- Nav Bar Arrow Keys -->
+    <string name="navigation_bar_arrow_keys_title">Показать клавиши со стрелками при наборе</string>
+    <string name="navigation_bar_arrow_keys_summary">Отображение левой и правой кнопок курсора на панели навигации при наборе текста</string>
+
+    <string name="global_actions_onthego">На ходу</string>
 </resources>
