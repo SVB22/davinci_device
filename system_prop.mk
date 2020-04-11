@@ -54,16 +54,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=0 \
     debug.enable.sglscale=1 \
     debug.gralloc.enable_fb_ubwc=1 \
+	debug.gralloc.gfx_ubwc_disable=0 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.recomputecrop=0 \
     dev.pm.dyn_samplingrate=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=2 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
-    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+	ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.has_HDR_display=true \
+	ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.use_color_management=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696
 
 # HBM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -83,7 +87,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml
+    media.settings.xml=/system/etc/media_profiles_vendor.xml \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-scan=true \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    mmp.enable.3g2=true \
+    media.aac_51_output_enabled=true \
+    mm.enable.smoothstreaming=true \
+    vendor.mm.enable.qcom_parser=63963135
 
 # set lmkd options
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -132,7 +147,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ssr.enable_ramdumps=0
+    persist.vendor.ssr.enable_ramdumps=0 \
     persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # WLAN
