@@ -83,4 +83,13 @@
     <!-- DC dimming settings -->
     <string name="dc_dimming_enable_title">DC Dimming</string>
     <string name="dc_dimming_enable_summary">DC Dimming уменьшает нагрузку на глаза в условиях низкой освещенности</string>
+
+    <!-- FOD Settings strings-->
+    <string name="fod_settings_title">Сканер отпечатков</string>
+    <string name="fod_settings_summary">Дополнительные настройки сканера</string>
+
+    <!-- FOD Screen Off Pulse strings-->
+    <string name="fod_screenoff_title">Сканировать при выключенном дисплее</string>
+    <string name="fod_screenoff_summary">Позволяет задействовать сканер отпечатков при выключенном экране (медленне чем в обычно режиме)</string>
+
 </resources>
