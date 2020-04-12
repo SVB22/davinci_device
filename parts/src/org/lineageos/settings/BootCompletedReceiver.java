@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
+import android.os.SystemProperties;
 
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
