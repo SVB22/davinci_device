@@ -102,48 +102,20 @@ public class KeyHandler implements DeviceKeyHandler {
         launchDozePulse();
     }
 
+
     @Override
-    public boolean handleKeyEvent(KeyEvent event) {
+    public KeyEvent handleKeyEvent(KeyEvent event) {
         if (!hasSetupCompleted()) {
-            return false;
+            return event;
         }
 
-        if (event.getAction() != KeyEvent.ACTION_UP) {
-            return false;
+        if (event.getAction() == KeyEvent.ACTION_UP) {
+            return event;
         }
 
         handleFODScreenOff(event.getScanCode());
 
-        return ArrayUtils.contains(sSupportedGestures, event.getScanCode());
-    }
-
-    @Override
-    public boolean canHandleKeyEvent(KeyEvent event) {
-        if (!hasSetupCompleted()) {
-            return false;
-        }
-
-        return ArrayUtils.contains(sSupportedGestures, event.getScanCode());
-    }
-
-    @Override
-    public boolean isDisabledKeyEvent(KeyEvent event) {
-        return false;
-    }
-
-    @Override
-    public boolean isCameraLaunchEvent(KeyEvent event) {
-        return false;
-    }
-
-    @Override
-    public boolean isWakeEvent(KeyEvent event){
-        return false;
-    }
-
-    @Override
-    public Intent isActivityLaunchEvent(KeyEvent event) {
-        return null;
+        return ArrayUtils.contains(sSupportedGestures, event.getScanCode()) ? null : event;
     }
 
 }
