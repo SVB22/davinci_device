@@ -81,7 +81,7 @@
     <string name="network_traffic_hidearrow_summary">Скрыть стрелки индикатора сетевого трафика</string>
     <string name="nettraf_font_size">Размер шрифта</string>
     <string name="network_traffic_statusbar">Строка состояния</string>
-    <string name="network_traffic_header">РАсширенный заголовок</string>
+    <string name="network_traffic_header">Расширенный заголовок</string>
 
     <!-- HW Keys customization -->
     <string name="action_value_default_action" translatable="false">default</string>
@@ -175,7 +175,7 @@
     <string name="powermenu_screenshot">Снимок экрана</string>
     <string name="powermenu_power">Выключение</string>
     <string name="powermenu_restart">Перезагрузка</string>
-    <string name="powermenu_restart_recovery">РАсширенная перезагрузка</string>
+    <string name="powermenu_restart_recovery">Расширенная перезагрузка</string>
     <string name="powermenu_airplane">Авиарежим</string>
     <string name="powermenu_settings">Настройки</string>
     <string name="powermenu_lockdown">Блокировка</string>
