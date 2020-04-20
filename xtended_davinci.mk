@@ -19,6 +19,9 @@ PRODUCT_DEVICE := davinci
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_NAME := xtended_davinci
 
+# Official MSM-Xtended
+XTENDED_BUILD_TYPE := OFFICIAL
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit from custom vendor
