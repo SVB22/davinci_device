@@ -256,4 +256,38 @@
     <string name="pattern_mm_mm_mm">mm-mm-mm</string>
     <string name="pattern_da_da_dzzz">da-da-dzzz</string>
     <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+
+    <!-- Adaptive Playback -->
+    <string name="adaptive_playback_screen_title">Адаптивное воспроизведение</string>
+    <string name="adaptive_playback_timeout_title">Использовать тайм-аут</string>
+    <string name="adaptive_playback_timeout_none_summary">Выкл.</string>
+    <string name="adaptive_playback_timeout_30_secs">30 секунд</string>
+    <string name="adaptive_playback_timeout_30_secs_summary">Вкл (30 секунд)</string>
+    <string name="adaptive_playback_timeout_1_min">1 минута</string>
+    <string name="adaptive_playback_timeout_1_min_summary">Вкл (1 минута)</string>
+    <string name="adaptive_playback_timeout_2_min">2 минуты</string>
+    <string name="adaptive_playback_timeout_2_min_summary">Вкл (2 минуты)</string>
+    <string name="adaptive_playback_timeout_5_min">5 минут</string>
+    <string name="adaptive_playback_timeout_5_min_summary">Вкл (5 минут)</string>
+    <string name="adaptive_playback_timeout_10_min">10 минут</string>
+    <string name="adaptive_playback_timeout_10_min_summary">Вкл (10 минут)</string>
+
+    <!-- Long swipe gestures -->
+    <string name="navbar_gesture_tweaks_pref_title">Дополнительные жесты</string>
+    <string name="navbar_gesture_tweaks_pref_summary">Настройка жестов и настройка пользовательских действий</string>
+    <string name="navbar_gesture_tweaks_cat_title">Дополнительно</string>
+    <string name="long_back_swipe_timeout_title">Таймаут для длинного свайпа</string>
+    <string name="left_swipe_actions_title">Действие для длинного свайпа влево</string>
+    <string name="left_swipe_app_action_title">Выберите приложение для длинного свайпа влево</string>
+    <string name="right_swipe_actions_title">Действие для длинного свайпа вправо</string>
+    <string name="right_swipe_app_action_title">Выберите приложение для длинного свайпа вправо</string>
+    <string name="gesture_nav_tweaks_footer_info">Чтобы выбрать конкретное действие для приложения, нажмите и удерживайте любую иконку в меню приложений.\n\nЕсли отображается средство запуска, проведите по экрану в самой нижней части, чтобы вызвать действие.</string>
+    <string name="back_swipe_extended_title">Дополнительные действия при свайпе</string>
+    <string name="back_swipe_extended_summary">Выполнить действие если горизонтальный свайп шире 3\/4 размера дисплея</string>
+
+    <!-- Gesture navbar handle -->
+    <string name="gesture_navbar_handle_title">Размер области для жестов</string>
+    <string name="gesture_navbar_handle_default">По умолчанию</string>
+    <string name="gesture_navbar_handle_middle">Средняя</string>
+    <string name="gesture_navbar_handle_large">Большая</string>
 </resources>

@@ -1306,4 +1306,6 @@
     <string name="navigation_bar_arrow_keys_summary">Отображение левой и правой кнопок курсора на панели навигации при наборе текста</string>
 
     <string name="global_actions_onthego">На ходу</string>
+
+    <string name="enable_oneui_summary">Оптимизировать меню настроек для использования одной рукой\nПРИМЕЧАНИЕ: необходимо будет перезапустить приложение настроек </string>
 </resources>
