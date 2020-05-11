@@ -22,6 +22,9 @@ PRODUCT_NAME := xtended_davinci
 # Official MSM-Xtended
 XTENDED_BUILD_TYPE := OFFICIAL
 
+# FOD animations
+EXTRA_FOD_ANIMATIONS := true
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit from custom vendor
